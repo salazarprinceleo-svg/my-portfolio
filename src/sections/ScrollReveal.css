@@ -1,0 +1,29 @@
+.scroll-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.direction-up {
+  transform: translateY(24px);
+}
+
+.scroll-reveal.direction-left {
+  transform: translateX(-56px);
+}
+
+.scroll-reveal.direction-right {
+  transform: translateX(56px);
+}
+
+.scroll-reveal.scroll-reveal--visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,127 @@
+.timeline-section{position:relative;width:100%;padding:150px 24px;overflow:hidden;color:var(--text-primary);isolation:isolate}.timeline-stars{position:absolute;inset:0;pointer-events:none;opacity:.58;background-image:radial-gradient(circle,rgba(255,255,255,.72) 0 1px,transparent 1.4px),radial-gradient(circle,rgba(83,216,199,.42) 0 .8px,transparent 1.2px),radial-gradient(circle,rgba(59,130,246,.46) 0 .8px,transparent 1.2px);background-size:83px 83px,137px 137px,191px 191px;background-position:20px 8px,60px 50px,15px 100px;mask-image:linear-gradient(to bottom,transparent 0%,black 10%,black 90%,transparent 100%)}
+.timeline-container{position:relative;width:100%;max-width:1100px;margin:0 auto}.timeline-header{text-align:center;max-width:720px;margin:0 auto 92px}.timeline-header .section-label{margin:0 0 14px;color:var(--accent-cyan);font-size:.78rem;font-weight:700;letter-spacing:5px;text-transform:uppercase}.timeline-header h2{margin:0 0 18px;color:var(--text-primary);font-size:clamp(2.3rem,5vw,3.7rem);font-weight:750;line-height:1.08;letter-spacing:-1.5px}.timeline-subtitle{max-width:640px;margin:0 auto;color:var(--text-secondary);font-size:1.02rem;line-height:1.8}
+.timeline-track{position:relative;display:flex;flex-direction:column;gap:0}.timeline-track::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--border-hover) 8%,var(--border-hover) 92%,transparent);opacity:.65}.timeline-progress{position:absolute;left:50%;top:0;width:3px;height:0;transform:translateX(-50%);background:linear-gradient(180deg,var(--accent-blue),var(--accent-cyan));box-shadow:0 0 18px var(--glow-a),0 0 32px rgba(83,216,199,.12);border-radius:999px;z-index:0;}.timeline-progress::after{content:"";position:absolute;left:50%;bottom:-2px;width:10px;height:10px;border-radius:50%;transform:translateX(-50%);background:var(--accent-cyan);box-shadow:0 0 0 5px rgba(83,216,199,.12),0 0 18px rgba(83,216,199,.7)}
+@keyframes timeline-line-fill{from{height:0}to{height:100%}}
+.timeline-reveal{width:100%;position:relative;z-index:1}.timeline-row{--accent:var(--accent-blue);--accent-glow:rgba(59,130,246,.32);--accent-dim:rgba(59,130,246,.10);position:relative;display:flex;align-items:center;gap:42px;padding:44px 0}.timeline-row.type-training{--accent:var(--accent-cyan);--accent-glow:rgba(83,216,199,.32);--accent-dim:rgba(83,216,199,.10)}.timeline-row.type-milestone{--accent:var(--accent-secondary);--accent-glow:rgba(111,134,217,.28);--accent-dim:rgba(111,134,217,.10)}.timeline-marker-col{flex:1 1 0;display:flex;justify-content:flex-end;text-align:right;order:1}.timeline-row.row-reverse .timeline-marker-col{justify-content:flex-start;text-align:left;order:3}.timeline-year-big{font-size:clamp(3rem,6vw,5rem);font-weight:800;line-height:1;letter-spacing:-3px;color:transparent;-webkit-text-stroke:1.4px color-mix(in srgb,var(--text-secondary),transparent 58%);transition:.45s ease;user-select:none}.timeline-row:hover .timeline-year-big{color:color-mix(in srgb,var(--accent),transparent 86%);-webkit-text-stroke-color:var(--accent);filter:drop-shadow(0 0 20px var(--accent-glow));transform:scale(1.03)}.timeline-spine-col{flex:0 0 52px;display:flex;align-items:center;justify-content:center;order:2}.timeline-node{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:var(--bg-primary);border:2px solid color-mix(in srgb,var(--text-secondary),transparent 45%);box-shadow:0 0 0 7px color-mix(in srgb,var(--bg-primary),transparent 12%);transition:.35s ease}.timeline-node span{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.25;transition:.35s ease}.timeline-row:hover .timeline-node{border-color:var(--accent);box-shadow:0 0 0 7px var(--accent-dim),0 0 25px var(--accent-glow);transform:scale(1.15)}.timeline-row:hover .timeline-node span{opacity:1;box-shadow:0 0 12px var(--accent)}.timeline-card-col{flex:1 1 0;order:3}.timeline-row.row-reverse .timeline-card-col{order:1}.timeline-content{position:relative;min-height:220px;padding:30px 32px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--border-color);border-radius:24px;background:linear-gradient(145deg,color-mix(in srgb,var(--card-bg),transparent 5%),color-mix(in srgb,var(--bg-secondary),transparent 15%));backdrop-filter:blur(16px);box-shadow:var(--shadow);overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .35s ease,box-shadow .35s ease,background .35s ease}.timeline-content::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--accent-dim),transparent 52%);opacity:0;transition:opacity .35s ease}.timeline-content::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--accent),transparent);opacity:.7}.timeline-row:not(.row-reverse) .timeline-content::after{left:0}.timeline-row.row-reverse .timeline-content::after{right:0}.timeline-row:not(.row-reverse):hover .timeline-content{transform:translateX(10px) translateY(-4px);border-color:color-mix(in srgb,var(--accent),transparent 45%);box-shadow:-20px 20px 55px -28px var(--accent-glow),var(--shadow)}.timeline-row.row-reverse:hover .timeline-content{transform:translateX(-10px) translateY(-4px);border-color:color-mix(in srgb,var(--accent),transparent 45%);box-shadow:20px 20px 55px -28px var(--accent-glow),var(--shadow)}.timeline-row:hover .timeline-content::before{opacity:1}.timeline-card-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.timeline-tag{padding:5px 12px;border-radius:999px;background:var(--accent-dim);color:var(--accent);font-size:.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.timeline-index{color:var(--text-muted);font-size:.72rem;letter-spacing:2px}.timeline-content h3,.timeline-place,.timeline-description{position:relative;z-index:1}.timeline-content h3{margin:0 0 9px;color:var(--text-primary);font-size:1.3rem;line-height:1.35}.timeline-place{display:flex;align-items:center;gap:6px;margin:0 0 13px;color:var(--accent-cyan);font-size:.82rem;font-weight:650}.timeline-description{margin:0;color:var(--text-secondary);font-size:.94rem;line-height:1.7}
+@media(max-width:860px){.timeline-section{padding:105px 16px}.timeline-header{margin-bottom:58px}.timeline-track::before,.timeline-progress{left:18px;transform:none}.timeline-progress{width:3px}.timeline-row,.timeline-row.row-reverse{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:24px 0 24px 50px}.timeline-marker-col,.timeline-row.row-reverse .timeline-marker-col,.timeline-spine-col,.timeline-card-col,.timeline-row.row-reverse .timeline-card-col{order:0;justify-content:flex-start}.timeline-spine-col{position:absolute;left:-1px;top:31px}.timeline-row .timeline-marker-col,.timeline-row.row-reverse .timeline-marker-col{text-align:left}.timeline-year-big{font-size:2.8rem;letter-spacing:-1px}.timeline-card-col,.timeline-row.row-reverse .timeline-card-col{width:100%}.timeline-content{min-height:0;padding:24px 22px}.timeline-row:not(.row-reverse):hover .timeline-content,.timeline-row.row-reverse:hover .timeline-content{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.timeline-progress{animation:none;height:100%}.timeline-node,.timeline-content,.timeline-year-big{transition:none}}
+
+.timeline-trace-dot{position:absolute;left:50%;width:13px;height:13px;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent-cyan);border:3px solid var(--bg-primary);box-shadow:0 0 0 5px rgba(83,216,199,.12),0 0 22px rgba(83,216,199,.85);z-index:3;pointer-events:none;transition:top .08s linear}
+.timeline-progress{transition:height .08s linear}
+@media(max-width:860px){.timeline-trace-dot{left:18px;transform:translate(-50%,-50%)}}
+
+
+/* =====================================================
+   LIGHT MODE
+   Re-declares the theme tokens locally so everything in
+   this section (text, borders, glows, cards) is legible on a
+   light background, whatever the global variables are set to.
+   Uses the same switch as the navbar: body.light-theme.
+===================================================== */
+
+body.light-theme .timeline-section,
+:root[data-theme="light"] .timeline-section {
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-hover: rgba(15, 23, 42, 0.22);
+  --bg-primary: #f8fafc;
+  --bg-secondary: #eef2f6;
+  --card-bg: #ffffff;
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  /* Darker accents: the pale dark-mode teal is unreadable on white */
+  --accent-blue: #2563eb;
+  --accent-cyan: #0d9488;
+  --accent-secondary: #4f63c7;
+  --glow-a: rgba(37, 99, 235, 0.25);
+}
+
+/* Stars: white dots vanish on light, so use soft dark/teal/blue dots */
+body.light-theme .timeline-stars,
+:root[data-theme="light"] .timeline-stars {
+  opacity: 0.32;
+  filter: none;
+  background-image:
+    radial-gradient(circle, rgba(15, 23, 42, 0.55) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(13, 148, 136, 0.55) 0 0.8px, transparent 1.2px),
+    radial-gradient(circle, rgba(37, 99, 235, 0.55) 0 0.8px, transparent 1.2px);
+}
+
+/* Per-type glow colours, matched to the darker accents */
+body.light-theme .timeline-row,
+:root[data-theme="light"] .timeline-row {
+  --accent-glow: rgba(37, 99, 235, 0.22);
+  --accent-dim: rgba(37, 99, 235, 0.09);
+}
+body.light-theme .timeline-row.type-training,
+:root[data-theme="light"] .timeline-row.type-training {
+  --accent-glow: rgba(13, 148, 136, 0.24);
+  --accent-dim: rgba(13, 148, 136, 0.10);
+}
+body.light-theme .timeline-row.type-milestone,
+:root[data-theme="light"] .timeline-row.type-milestone {
+  --accent-glow: rgba(79, 99, 199, 0.22);
+  --accent-dim: rgba(79, 99, 199, 0.10);
+}
+
+/* Cards: solid white with a defined border (they were almost the page colour) */
+body.light-theme .timeline-content,
+:root[data-theme="light"] .timeline-content {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  backdrop-filter: none;
+}
+body.light-theme .timeline-row:hover .timeline-content,
+:root[data-theme="light"] .timeline-row:hover .timeline-content {
+  background: #ffffff;
+  border-color: color-mix(in srgb, var(--accent), transparent 45%);
+}
+body.light-theme .timeline-row:not(.row-reverse):hover .timeline-content {
+  box-shadow: -16px 18px 45px -24px var(--accent-glow), 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+body.light-theme .timeline-row.row-reverse:hover .timeline-content {
+  box-shadow: 16px 18px 45px -24px var(--accent-glow), 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+/* Big outlined years: stronger outline so they read on light */
+body.light-theme .timeline-year-big,
+:root[data-theme="light"] .timeline-year-big {
+  -webkit-text-stroke: 1.4px rgba(15, 23, 42, 0.28);
+}
+body.light-theme .timeline-row:hover .timeline-year-big {
+  color: color-mix(in srgb, var(--accent), transparent 88%);
+  -webkit-text-stroke-color: var(--accent);
+}
+
+/* Spine node */
+body.light-theme .timeline-node,
+:root[data-theme="light"] .timeline-node {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.35);
+  box-shadow: 0 0 0 7px rgba(248, 250, 252, 0.9);
+}
+
+/* Progress line + trace dot: hardcoded dark-mode teal glows */
+body.light-theme .timeline-progress,
+:root[data-theme="light"] .timeline-progress {
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.3), 0 0 26px rgba(13, 148, 136, 0.15);
+}
+body.light-theme .timeline-progress::after,
+:root[data-theme="light"] .timeline-progress::after {
+  box-shadow: 0 0 0 5px rgba(13, 148, 136, 0.14), 0 0 14px rgba(13, 148, 136, 0.55);
+}
+body.light-theme .timeline-trace-dot,
+:root[data-theme="light"] .timeline-trace-dot {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 5px rgba(13, 148, 136, 0.16), 0 0 18px rgba(13, 148, 136, 0.55);
+}
+
+/* Small text on the cards */
+body.light-theme .timeline-index { color: #94a3b8; }
+body.light-theme .timeline-tag { font-weight: 800; }
+
+@media (max-width: 860px) {
+  body.light-theme .timeline-node { box-shadow: 0 0 0 5px rgba(248, 250, 252, 0.95); }
+}

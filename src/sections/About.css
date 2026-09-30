@@ -1,0 +1,519 @@
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about {
+  position: relative;
+
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+
+  padding: 130px 9% 160px;
+
+  overflow: hidden;
+
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.about-heading {
+  color: var(--text-primary);
+
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  max-width: 1380px;
+  margin: 0 auto 28px;
+}
+
+/* =========================================
+   TWO-PANEL ROW
+   Image and intro card now share the same height
+========================================= */
+
+.about-card {
+  max-width: 1380px;
+  margin: 0 auto 16px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.about-image-wrap {
+  flex: 0 0 300px;
+  display: flex;
+}
+
+.about-image-panel {
+  position: relative;
+
+  width: 300px;
+  min-height: 365px;
+  flex: 1;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: #f4f4f2;
+  border: 1px solid var(--border-color);
+
+  box-shadow: var(--shadow);
+
+  animation: image-float 5s ease-in-out infinite;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes image-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.about-image-panel:hover {
+  animation-play-state: paused;
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 28px 65px rgba(23, 184, 166, 0.25);
+}
+
+.about-image-panel img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+
+  transition: transform 0.5s ease;
+}
+
+.about-image-panel:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   INTRO CARD
+========================================= */
+
+.about-intro-card {
+  position: relative;
+
+  flex: 1;
+  min-width: 280px;
+
+  display: flex;
+
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-intro-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+  padding: 1.5px;
+
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.about-intro-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.3);
+}
+
+.about-intro-card:hover::after {
+  opacity: 1;
+}
+
+/* Text is vertically centred so it lines up with the photo */
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 44px 56px;
+}
+
+.about-content h3 {
+  color: var(--text-primary);
+
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+
+  margin: 0 0 16px;
+}
+
+/* Name gradient (fixed colours). The Download Resume button uses the same gradient. */
+.accent {
+  background: linear-gradient(90deg, #3b6df0, #17b8a6);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.about-text {
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+  line-height: 1.75;
+
+  max-width: 640px;
+  margin: 0 0 14px;
+}
+
+.about-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.about-content .cv-btn {
+  margin-top: 24px;
+}
+
+/* Download resume button: same blue to cyan gradient as the name */
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+  color: #ffffff;
+  font-size: 0.90rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  /* Fixed colours: identical in dark and light mode, and identical to the name */
+  background: linear-gradient(90deg, #3b6df0, #17b8a6);
+
+  box-shadow: 0 10px 25px rgba(59, 109, 240, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.cv-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* LOCK: the button looks identical in dark and light mode.
+   !important so no global or light-theme rule can recolour it. */
+.about .cv-btn,
+body.light-theme .about .cv-btn,
+:root[data-theme="light"] .about .cv-btn {
+  background: linear-gradient(90deg, #3b6df0, #17b8a6) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: 0 10px 25px rgba(59, 109, 240, 0.25) !important;
+}
+
+.about .cv-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* =========================================
+   MY FOCUS BAR
+========================================= */
+
+.focus-card {
+  position: relative;
+
+  max-width: 1380px;
+  margin: 16px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+
+  padding: 44px 56px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(59, 109, 240, 0.18);
+}
+
+.focus-text {
+  flex: 1;
+  min-width: 220px;
+}
+
+.focus-text h3 {
+  color: var(--text-primary);
+
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  margin: 0 0 8px;
+}
+
+.focus-text p {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+
+  max-width: 480px;
+  margin: 0;
+}
+
+.focus-tags {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(190px, 1fr));
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.focus-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    border-color var(--transition),
+    background-color 0.2s ease;
+}
+
+.focus-tag svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.focus-tag:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-cyan);
+}
+
+.focus-tag:hover svg {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-panel {
+    animation: none;
+  }
+}
+
+
+/* =====================================================
+   LIGHT MODE
+   Tokens re-declared for this section so cards, borders
+   and text read properly on a light background.
+   The name and the Download Resume button use fixed gradient
+   colours, so they look the same in both themes.
+   Switch: body.light-theme (same as the other pages).
+===================================================== */
+
+body.light-theme .about,
+:root[data-theme="light"] .about {
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --bg-secondary: #f1f5f9;
+  --card-bg: #ffffff;
+  --shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .about-image-panel,
+:root[data-theme="light"] .about-image-panel {
+  background: #e2e8f0;
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.14);
+}
+
+body.light-theme .about-image-panel:hover,
+:root[data-theme="light"] .about-image-panel:hover {
+  box-shadow: 0 26px 60px rgba(13, 148, 136, 0.22);
+}
+
+body.light-theme .about-intro-card:hover,
+:root[data-theme="light"] .about-intro-card:hover {
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.13);
+}
+
+body.light-theme .focus-card:hover,
+:root[data-theme="light"] .focus-card:hover {
+  box-shadow: 0 20px 48px rgba(59, 109, 240, 0.14);
+}
+
+/* Focus pills: soft fill so they read as buttons on white */
+body.light-theme .focus-tag,
+:root[data-theme="light"] .focus-tag {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme .focus-tag:hover,
+:root[data-theme="light"] .focus-tag:hover {
+  background: #ffffff;
+  border-color: #0d9488;
+}
+
+/* Icons only: a darker teal so they're visible on white */
+body.light-theme .focus-tag svg,
+:root[data-theme="light"] .focus-tag svg {
+  color: #0d9488;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .about {
+    padding: 90px 6% 100px;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image-wrap {
+    flex: 0 0 auto;
+  }
+
+  .about-intro-card {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .about-content {
+    padding: 40px 34px;
+  }
+
+  .focus-card {
+    margin-top: 14px;
+    padding: 32px 28px;
+  }
+
+  .focus-tags {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .about {
+    padding: 64px 20px 72px;
+  }
+
+  .about-heading {
+    margin-bottom: 20px;
+  }
+
+  .about-image-panel {
+    width: 220px;
+    min-height: 280px;
+    border-radius: 18px;
+  }
+
+  .about-content {
+    padding: 30px 24px;
+  }
+
+  .about-intro-card {
+    border-radius: 20px;
+  }
+
+  .focus-card {
+    margin-top: 12px;
+    padding: 26px 22px;
+    border-radius: 20px;
+    gap: 20px;
+  }
+
+  .focus-tags {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-tag {
+    white-space: normal;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .about-content {
+    padding: 26px 18px;
+  }
+
+  .about-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+}

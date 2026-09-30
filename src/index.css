@@ -1,0 +1,114 @@
+/* ========================================
+   GLOBAL RESET + GALAXY PORTFOLIO ATMOSPHERE
+======================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+ :root {
+  --bg-primary: #08090c;
+  --bg-secondary: #0e1015;
+  --bg-tertiary: #151820;
+  --text-primary: #f5f7fa;
+  --text-secondary: #aeb6c2;
+  --text-muted: #737d8b;
+  --card-bg: rgba(255,255,255,.045);
+  --card-bg-hover: rgba(255,255,255,.075);
+  --border-color: rgba(255,255,255,.105);
+  --border-hover: rgba(255,255,255,.22);
+  --navbar-bg: rgba(10,12,17,.76);
+  --accent-blue: #5b8cff;
+  --accent-cyan: #43c7b6;
+  --accent-primary: #78a2ff;
+  --accent-secondary: #3971ea;
+  --glow-a: rgba(91,140,255,.16);
+  --glow-b: rgba(67,199,182,.10);
+  --glow-c: rgba(91,140,255,.07);
+  --shadow: 0 24px 70px rgba(0,0,0,.34);
+  --transition: .3s ease;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body.light-theme {
+  --bg-primary: #f4f1ea;
+  --bg-secondary: #ece8df;
+  --bg-tertiary: #e3ddd2;
+  --text-primary: #17191d;
+  --text-secondary: #5c6068;
+  --text-muted: #858891;
+  --card-bg: rgba(255,255,255,.72);
+  --card-bg-hover: rgba(255,255,255,.92);
+  --border-color: rgba(23,25,29,.11);
+  --border-hover: rgba(23,25,29,.22);
+  --navbar-bg: rgba(244,241,234,.82);
+  --accent-blue: #315fba;
+  --accent-cyan: #237f78;
+  --accent-primary: #315fba;
+  --accent-secondary: #234b92;
+  --glow-a: rgba(49,95,186,.08);
+  --glow-b: rgba(35,127,120,.055);
+  --glow-c: rgba(49,95,186,.035);
+  --shadow: 0 18px 50px rgba(36,39,44,.10);
+}
+
+html { scroll-behavior: smooth; scrollbar-width: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(circle at 12% 16%, rgba(91,112,220,.14), transparent 25rem),
+    radial-gradient(circle at 84% 24%, rgba(54,173,164,.10), transparent 28rem),
+    radial-gradient(circle at 52% 82%, rgba(78,98,180,.08), transparent 30rem),
+    radial-gradient(circle, rgba(255,255,255,.42) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(134,160,220,.24) 0 .7px, transparent 1.1px),
+    linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+  background-size: auto, auto, auto, 92px 92px, 137px 137px, auto;
+  background-position: center, center, center, 8px 12px, 40px 54px, center;
+  background-attachment: fixed;
+  transition: background-color .35s ease, color .35s ease;
+}
+
+body.light-theme {
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(49,95,186,.07), transparent 28rem),
+    radial-gradient(circle at 88% 22%, rgba(35,127,120,.045), transparent 26rem),
+    radial-gradient(circle at 50% 88%, rgba(49,95,186,.035), transparent 30rem),
+    linear-gradient(180deg, #f7f4ee, #ebe7df);
+}
+
+h1,h2,h3,h4 { font-family: var(--font-display); }
+a { color: inherit; text-decoration: none; }
+button,input,textarea { font: inherit; }
+section { position: relative; background: transparent !important; }
+#root { min-height: 100vh; position: relative; z-index: 1; }
+
+/* Soft drifting nebulae — intentionally subtle so content remains readable. */
+#root::before,#root::after {
+  content: ""; position: fixed; inset: -20%; pointer-events: none; z-index: -1;
+  background: radial-gradient(circle at 30% 40%, var(--glow-a), transparent 22%), radial-gradient(circle at 70% 60%, var(--glow-b), transparent 20%);
+  filter: blur(35px); opacity: .6; animation: nebula-drift 18s ease-in-out infinite alternate;
+}
+#root::after { animation-duration: 25s; animation-direction: alternate-reverse; opacity: .35; }
+@keyframes nebula-drift { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(2%, 2%, 0) scale(1.06); } }
+
+.cursor-spotlight {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0;
+  transition: opacity .6s ease;
+  background: radial-gradient(520px circle at var(--spot-x,50%) var(--spot-y,30%), var(--glow-a), transparent 65%);
+}
+.cursor-spotlight.is-active { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  #root::before,#root::after { animation: none; }
+  .cursor-spotlight { display:none; }
+}
+@media (max-width:700px) { .hero { min-height:75vh; } .cursor-spotlight { display:none; } }
+/* Invisible scrollbars everywhere while preserving scrolling. */
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{width:0;height:0;display:none}

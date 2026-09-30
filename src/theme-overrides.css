@@ -1,0 +1,259 @@
+/* =========================================================
+   CONSISTENT THEME POLISH
+   Light: warm editorial / paper-inspired
+   Dark: graphite / gallery-inspired
+========================================================= */
+
+body.light-theme {
+  background-color: var(--bg-primary);
+}
+
+body.light-theme .navbar {
+  border-color: rgba(23,25,29,.10);
+  box-shadow: 0 12px 32px rgba(31,34,40,.08);
+}
+
+body.light-theme .logo {
+  background: none;
+  color: var(--text-primary);
+}
+
+body.light-theme .hire-me-btn,
+body.light-theme .mobile-hire {
+  color: #fff !important;
+}
+
+body.light-theme .hero-image-frame {
+  background: #e4ded4;
+  border-color: rgba(23,25,29,.12);
+  box-shadow: 0 26px 60px rgba(45,45,45,.12);
+}
+
+
+body.light-theme .social-circle {
+  background: rgba(255,255,255,.58);
+  border-color: rgba(23,25,29,.12);
+  color: var(--text-primary);
+}
+
+body.light-theme .social-circle:hover {
+  background: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+body.light-theme .btn.secondary {
+  background: rgba(255,255,255,.55);
+  border-color: rgba(23,25,29,.12);
+}
+
+body.light-theme .availability-badge {
+  background: rgba(255,255,255,.55);
+  border-color: rgba(23,25,29,.10);
+}
+
+body.light-theme .skill-card,
+body.light-theme .skill-row,
+body.light-theme .about-intro-card,
+body.light-theme .focus-card,
+body.light-theme .contact-card,
+body.light-theme .project-row .project-content {
+  background: rgba(255,255,255,.64);
+  border-color: rgba(23,25,29,.10);
+  box-shadow: 0 12px 35px rgba(35,37,42,.07);
+}
+
+body.light-theme .skill-card:hover,
+body.light-theme .skill-row:hover,
+body.light-theme .about-intro-card:hover,
+body.light-theme .focus-card:hover,
+body.light-theme .contact-card:hover {
+  border-color: rgba(49,95,186,.25);
+  box-shadow: 0 18px 45px rgba(35,37,42,.10);
+}
+
+body.light-theme .skill-icon,
+body.light-theme .skill-row-icon,
+body.light-theme .info-icon {
+  background: rgba(49,95,186,.07);
+  border-color: rgba(49,95,186,.16);
+  color: var(--accent-blue);
+}
+
+body.light-theme .cv-btn,
+body.light-theme .contact-button {
+  background: var(--text-primary);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(23,25,29,.13);
+}
+
+body.light-theme .cv-btn:hover,
+body.light-theme .contact-button:hover {
+  background: #2c3037;
+}
+
+body.light-theme .project-modal {
+  background: rgba(247,244,238,.98);
+  color: var(--text-primary);
+}
+
+body.light-theme .field input,
+body.light-theme .field textarea {
+  background: rgba(255,255,255,.68);
+  border-color: rgba(23,25,29,.12);
+}
+
+body.light-theme .site-footer {
+  background: rgba(255,255,255,.26);
+}
+
+body.light-theme .scroll-to-top {
+  background: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+/* Dark mode keeps the existing blue/cyan identity, with less glow and more gallery-like contrast. */
+body:not(.light-theme) .navbar {
+  border-color: rgba(255,255,255,.09);
+}
+
+body:not(.light-theme) .logo {
+  background: none;
+  color: var(--text-primary);
+}
+
+body:not(.light-theme) .hire-me-btn,
+body:not(.light-theme) .mobile-hire,
+body:not(.light-theme) .cv-btn,
+body:not(.light-theme) .contact-button {
+  color: #081018;
+}
+
+body:not(.light-theme) .skill-icon,
+body:not(.light-theme) .skill-row-icon,
+body:not(.light-theme) .info-icon {
+  box-shadow: inset 0 0 0 1px rgba(83,216,199,.03);
+}
+
+
+/* =========================================================
+   LIGHT MODE — APPLIED WITHOUT ALTERING DARK MODE
+   Keep the existing layout and accent identity; only swap
+   surfaces, text contrast, borders, and shadows for clarity.
+========================================================= */
+
+body.light-theme {
+  --bg-primary: #f6f7f9;
+  --bg-secondary: #eef1f4;
+  --bg-tertiary: #e7ebef;
+  --text-primary: #171a1f;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --card-bg: rgba(255,255,255,.88);
+  --card-bg-hover: #ffffff;
+  --border-color: rgba(23,26,31,.12);
+  --border-hover: rgba(23,26,31,.22);
+  --navbar-bg: rgba(255,255,255,.88);
+  --shadow: 0 18px 50px rgba(15,23,42,.09);
+}
+
+body.light-theme .section-label,
+body.light-theme .section-kicker,
+body.light-theme .certificates-label {
+  color: #315fba;
+}
+
+body.light-theme .hero-description,
+body.light-theme .about-text,
+body.light-theme .timeline-description,
+body.light-theme .skills-subtitle,
+body.light-theme .sidebar-text,
+body.light-theme .certificates-intro,
+body.light-theme .contact-description,
+body.light-theme .contact-intro {
+  color: #4b5563;
+}
+
+body.light-theme .about-image-panel,
+body.light-theme .about-intro-card,
+body.light-theme .focus-card,
+body.light-theme .skill-card,
+body.light-theme .skill-row,
+body.light-theme .contact-card,
+body.light-theme .certificate-card {
+  background: #ffffff;
+  border-color: rgba(23,26,31,.11);
+  box-shadow: 0 14px 38px rgba(15,23,42,.07);
+}
+
+body.light-theme .about-image-panel img {
+  filter: none;
+}
+
+body.light-theme .skill-card:hover,
+body.light-theme .skill-row:hover,
+body.light-theme .about-intro-card:hover,
+body.light-theme .focus-card:hover,
+body.light-theme .contact-card:hover {
+  border-color: rgba(49,95,186,.24);
+  box-shadow: 0 18px 45px rgba(15,23,42,.10);
+}
+
+body.light-theme .contact-terminal-top,
+body.light-theme .sidebar-terminal {
+  border-color: rgba(23,26,31,.10);
+}
+
+body.light-theme .field input,
+body.light-theme .field textarea {
+  color: #171a1f;
+  background: #ffffff;
+  border-color: rgba(23,26,31,.13);
+}
+
+body.light-theme .field input::placeholder,
+body.light-theme .field textarea::placeholder {
+  color: #8a929d;
+}
+
+body.light-theme .mobile-menu {
+  background: rgba(255,255,255,.98);
+}
+
+body.light-theme .timeline-section,
+body.light-theme .skills,
+body.light-theme .about,
+body.light-theme .certificates,
+body.light-theme .contact {
+  color: #171a1f;
+}
+
+/* Image policy: preserve original pixels; theme only changes the surrounding UI. */
+body.light-theme .hero-image-frame img,
+body.light-theme .project-image img,
+body.light-theme .project-modal-image img,
+body.light-theme .about-image-panel img,
+body.light-theme .certificate-card img {
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* No decorative image/orbit motion in light mode. */
+body.light-theme .hero-image,
+body.light-theme .hero-orbit {
+  animation: none !important;
+}
+body.light-theme .hero-orbit {
+  transform: none !important;
+}
+
+/* Project/certificate imagery stays visually static; controls remain usable. */
+body.light-theme .project-image:hover img {
+  transform: none !important;
+  filter: none !important;
+}
+body.light-theme .certificate-card {
+  transition: none !important;
+}

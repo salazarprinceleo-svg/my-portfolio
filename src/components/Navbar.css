@@ -1,0 +1,818 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html,
+body,
+.mobile-menu {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.mobile-menu::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(1300px, calc(100% - 48px));
+
+  z-index: 1000;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 12px 20px 12px 30px;
+
+  background: var(--navbar-bg);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  transition:
+    background 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  display: block;
+
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  background: linear-gradient(
+    90deg,
+    #3b6df0,
+    #17b8a6
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent !important;
+}
+
+/* Keep logo gradient in both themes */
+
+.logo,
+body.light-theme .logo {
+  background: linear-gradient(
+    90deg,
+    #3b6df0,
+    #17b8a6
+  ) !important;
+
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+
+  color: transparent !important;
+}
+
+/* =========================================
+   DESKTOP NAV LINKS
+========================================= */
+
+.nav-links {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(16px, 2.2vw, 38px);
+}
+
+.nav-links a {
+  position: relative;
+
+  color: var(--text-secondary);
+
+  text-decoration: none;
+
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  padding: 8px 0;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a.active {
+  color: var(--text-primary);
+}
+
+.nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 65%;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #3b6df0,
+    #17b8a6
+  );
+}
+
+/* =========================================
+   RIGHT ACTIONS
+========================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   THEME BUTTON
+========================================= */
+
+.theme-toggle {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================
+   HIRE ME BUTTON
+========================================= */
+
+.hire-me-btn {
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  color: #ffffff !important;
+
+  background: linear-gradient(
+    90deg,
+    #3b6df0,
+    #17b8a6
+  ) !important;
+
+  border: 0 !important;
+
+  box-shadow:
+    0 10px 25px rgba(59, 109, 240, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.hire-me-btn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.1);
+
+  box-shadow:
+    0 8px 28px rgba(59, 109, 240, 0.4);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.menu-toggle span {
+  width: 17px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    width 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger → X */
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+  display: none;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.menu-overlay {
+  display: none;
+}
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+body.light-theme {
+  background: #f7f8fc;
+  color: #111827;
+}
+
+body.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.8);
+
+  border-color: rgba(15, 23, 42, 0.08);
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .nav-links a {
+  color: #52525b;
+}
+
+body.light-theme .nav-links a:hover,
+body.light-theme .nav-links a.active {
+  color: #111827;
+}
+
+body.light-theme .theme-toggle {
+  color: #111827;
+
+  background: rgba(15, 23, 42, 0.05);
+
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme .theme-toggle:hover {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme .menu-toggle {
+  background: rgba(15, 23, 42, 0.05);
+
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme .menu-toggle span {
+  background: #111827;
+}
+
+/* =========================================
+   LAPTOP
+   851px - 1150px
+========================================= */
+
+@media (max-width: 1150px) and (min-width: 851px) {
+  .navbar {
+    width: calc(100% - 32px);
+
+    padding-left: 24px;
+    padding-right: 16px;
+
+    gap: 16px;
+  }
+
+  .nav-links {
+    gap: clamp(12px, 1.6vw, 22px);
+  }
+
+  .nav-links a {
+    font-size: 0.84rem;
+  }
+
+  .hire-me-btn {
+    padding: 0 15px;
+
+    font-size: 0.86rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =========================================
+   TABLET + MOBILE
+   <= 850px
+========================================= */
+
+@media (max-width: 850px) {
+  .navbar {
+    top: 10px;
+
+    width: calc(100% - 24px);
+
+    grid-template-columns: auto 1fr auto;
+
+    gap: 10px;
+
+    padding: 10px 14px 10px 20px;
+
+    border-radius: 20px;
+  }
+
+  .navbar.menu-open {
+    border-radius: 20px 20px 16px 16px;
+  }
+
+  /* Hide desktop navigation */
+
+  .nav-links {
+    display: none;
+  }
+
+  /* Right controls */
+
+  .nav-actions {
+    grid-column: 3;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  /* Hide desktop Hire Me */
+
+  .hire-me-btn {
+    display: none;
+  }
+
+  /* Show hamburger */
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* =====================================
+     MOBILE DROPDOWN
+  ===================================== */
+
+  .mobile-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 10px;
+
+    background: rgba(10, 8, 20, 0.96);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px) scale(0.98);
+
+    pointer-events: none;
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.4);
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .mobile-menu.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+
+    pointer-events: auto;
+  }
+
+  .mobile-menu a {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--text-primary);
+
+    background: rgba(255, 255, 255, 0.06);
+
+    transform: translateX(3px);
+  }
+
+  .mobile-menu a.active {
+    color: var(--text-primary);
+
+    background: rgba(59, 109, 240, 0.12);
+  }
+
+  /* Active indicator */
+
+  .mobile-active-dot {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #17b8a6;
+
+    box-shadow:
+      0 0 10px rgba(23, 184, 166, 0.7);
+  }
+
+  /* =====================================
+     MOBILE HIRE BUTTON
+  ===================================== */
+
+  .mobile-hire {
+    margin-top: 5px;
+
+    justify-content: center !important;
+
+    gap: 8px;
+
+    color: #ffffff !important;
+
+    background: linear-gradient(
+      90deg,
+      #3b6df0,
+      #17b8a6
+    ) !important;
+
+    border: 0 !important;
+
+    box-shadow:
+      0 10px 25px rgba(59, 109, 240, 0.25) !important;
+  }
+
+  .mobile-hire:hover {
+    transform: translateY(-1px) !important;
+
+    filter: brightness(1.1) !important;
+  }
+
+  /* =====================================
+     OVERLAY
+  ===================================== */
+
+  .menu-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    display: block;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  /* =====================================
+     LIGHT MODE MOBILE
+  ===================================== */
+
+  body.light-theme .mobile-menu {
+    background: rgba(255, 255, 255, 0.96);
+
+    border-color: rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+      0 20px 50px rgba(15, 23, 42, 0.15);
+  }
+
+  body.light-theme .mobile-menu a {
+    color: #475569;
+  }
+
+  body.light-theme .mobile-menu a:hover,
+  body.light-theme .mobile-menu a.active {
+    color: #111827;
+
+    background: #f1f5f9;
+  }
+
+  body.light-theme .mobile-active-dot {
+    background: #3b6df0;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+   <= 480px
+========================================= */
+
+@media (max-width: 480px) {
+  .navbar {
+    top: 8px;
+
+    width: calc(100% - 16px);
+
+    padding: 8px 9px 8px 15px;
+
+    border-radius: 18px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+
+    letter-spacing: 1.2px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mobile-menu {
+    top: calc(100% + 7px);
+
+    padding: 8px;
+
+    border-radius: 16px;
+  }
+
+  .mobile-menu a {
+    min-height: 44px;
+
+    padding: 11px 13px;
+
+    font-size: 0.86rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+   <= 360px
+========================================= */
+
+@media (max-width: 360px) {
+  .navbar {
+    width: calc(100% - 12px);
+
+    padding-left: 12px;
+    padding-right: 7px;
+  }
+
+  .logo {
+    font-size: 0.95rem;
+
+    letter-spacing: 0.8px;
+  }
+
+  .nav-actions {
+    gap: 5px;
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .menu-toggle span {
+    width: 15px;
+  }
+
+  .mobile-menu {
+    padding: 7px;
+  }
+
+  .mobile-menu a {
+    font-size: 0.84rem;
+
+    min-height: 42px;
+
+    padding: 10px 12px;
+  }
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .nav-links a:hover,
+  .hire-me-btn:hover,
+  .theme-toggle:hover,
+  .mobile-menu a:hover {
+    transform: none;
+  }
+}
